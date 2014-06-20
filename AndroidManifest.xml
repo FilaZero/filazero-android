@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="br.com.projeto.filazero"
+    android:versionCode="1"
+    android:versionName="1.0" >
+	
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+	<uses-permission android:name="android.permission.VIBRATE"/> 
+	
+	<!-- Para verificar se alguma activity está executando -->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    
+    <!-- O GCM precisa se conectar a uma conta do Google. -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    
+    <!-- Permissão utilizada para travar a tela, e evitar o modo de espera. -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    
+    <!--Permissão customizada necessária para receber as mensagens. 
+		Ela precisa ser chamada PACOTE, -->
+    <permission
+        android:name="br.com.projeto.filazero.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+    <uses-permission android:name="br.com.projeto.filazero.permission.C2D_MESSAGE" />
+    
+    <!-- Declara a permissão para se registrar no GCM e receber mensagens -->
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+  	
+  	<!-- Permissão para realizar chamadas -->
+   	<uses-permission android:name="android.permission.CALL_PHONE"/>   
+    <uses-sdk
+        android:minSdkVersion="7"
+        android:targetSdkVersion="19" />
+  
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" 
+        android:screenOrientation="portrait">
+        <activity
+            android:name="br.com.projeto.filazero.view.GUILogin"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity 
+            android:name=".view.GUICadastroUser"
+			android:label="Cadastro">
+        </activity>
+        <activity 
+            android:name=".view.GUIHome"
+            android:theme="@style/CustomActionBarTheme"
+            android:screenOrientation="portrait">			
+        </activity>
+<!--         <activity  -->
+<!--             android:name=".view.GUILogin" -->
+<!--             android:label="Login">		 -->
+<!--         </activity> -->
+        <activity
+            android:name=".view.GUILocalizarEstabelecimento"
+            android:label="@string/localizarestabelecimento"
+            android:theme="@style/CustomActionBarTheme"
+            android:screenOrientation="portrait">
+        	<meta-data
+            	android:name="android.support.PARENT_ACTIVITY"
+            	android:value=".view.GUIHome" />		
+        </activity>
+        <activity 
+            android:name=".view.GUIInfoConsulta"
+            android:label="@string/consulta"
+            android:theme="@style/CustomActionBarTheme"
+            android:screenOrientation="portrait">
+        	<meta-data
+            	android:name="android.support.PARENT_ACTIVITY"
+            	android:value=".view.GUIHome" 
+            	/>		
+        </activity>
+        <activity 
+            android:name=".view.tabInfo"
+            android:label="Fila"
+            android:screenOrientation="portrait">		
+        </activity>
+        
+        <receiver android:name=".broadcastreceivers.VerificacaoInternetReceiver" >
+        	<intent-filter>
+            	<action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+        	</intent-filter>
+   		</receiver>
+    
+        <receiver
+            android:name="com.google.android.gcm.GCMBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <!-- Filtrar as ações para receber mensagens. -->
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <!-- Filtrar a ação para receber o registration id do aparelho. -->
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <category android:name="br.com.projeto.filazero" />
+            </intent-filter>
+   		</receiver>
+                
+        <!--
+		  Service chamado automaticamente pelo receiver acima.
+		  Deve conter o código para ler as mensagens.
+        -->
+        <service android:name=".GCMIntentService" />
+       
+        <service android:name=".Servico">
+			<intent-filter>
+		 	<action android:name="SERVICO_GCM" />
+		 	<category android:name="android.intent.category.DEFAULT" />
+		 	</intent-filter>
+		</service>
+        
+         
+    </application>
+	  
+</manifest>

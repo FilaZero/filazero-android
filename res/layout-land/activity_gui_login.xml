@@ -1,0 +1,70 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:background="@drawable/fundo"
+    android:id="@+id/portraitRelativeLayout">
+    	
+    	<EditText
+		    android:id="@+id/login_etLogin"
+		    android:layout_width="fill_parent"
+		    android:layout_height="35dp"
+		    android:layout_alignParentLeft="true"
+		    android:layout_marginBottom="10dp"
+		    android:layout_above="@+id/login_etSenha"
+		    android:background="@drawable/edittext_rounded"
+		    android:layout_marginLeft="20dp"
+		    android:layout_marginRight="20dp"
+		    android:ems="10"
+		    android:hint="@string/login"
+		    android:singleLine="true" />
+    	
+		<EditText
+		    android:id="@+id/login_etSenha"
+		    android:layout_width="fill_parent"
+		    android:layout_height="35dp"
+		    android:layout_centerHorizontal="true"
+		    android:layout_centerVertical="true"
+		    android:background="@drawable/edittext_rounded"
+		    android:layout_marginLeft="20dp"
+		    android:layout_marginRight="20dp"
+		    android:ems="10"
+		    android:inputType="textPassword"
+		    android:singleLine="true" />
+
+		<Button
+		    android:id="@+id/login_btEntrar"
+		    style="@style/button_text"
+		    android:layout_width="fill_parent"
+		    android:layout_height="35dp"
+		    android:layout_below="@+id/login_etSenha"
+		    android:layout_centerHorizontal="true"
+		    android:layout_marginTop="15dp"
+		    android:layout_marginLeft="20dp"
+		    android:layout_marginRight="20dp"
+		    android:background="@drawable/button_blue"
+		    />
+
+  		  <TextView
+  		      android:id="@+id/login_Cadastrasse"
+  		      android:layout_width="wrap_content"
+  		      android:layout_height="wrap_content"
+  		      android:layout_below="@+id/login_btEntrar"
+  		      android:layout_centerHorizontal="true"
+  		      android:layout_marginTop="23dp"
+  		      android:clickable="true"
+  		      android:gravity="center"
+  		      android:onClick="onClick"
+  		      android:textStyle="bold"
+  		      android:textColor="@color/white" />
+
+  		  <ImageView
+  		      android:id="@+id/imageView1"
+  		      android:layout_width="wrap_content"
+  		      android:layout_height="wrap_content"
+  		      android:layout_alignParentTop="true"
+  		      android:layout_marginTop="4dp"
+  		      android:layout_centerHorizontal="true"
+  		      android:contentDescription="@string/logo"
+  		      android:src="@drawable/ic_telainicial" />
+
+</RelativeLayout>

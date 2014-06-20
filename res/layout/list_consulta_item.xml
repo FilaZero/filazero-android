@@ -1,0 +1,51 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:padding="6dp" >
+     <ImageView
+        android:id="@+id/linhasconsultas_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+       android:layout_centerInParent="true"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/estabelecimento"
+        android:src="@drawable/ic_launcher" />
+    <TextView
+        android:id="@+id/linhasconsultas_titulo"
+        style="@style/TextTitulo"
+        android:layout_toRightOf="@id/linhasconsultas_icon"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="3dp"
+     	android:paddingRight="10dp"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/linhasconsultas_medico"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/linhasconsultas_titulo"
+        android:layout_below="@+id/linhasconsultas_titulo"
+        android:ellipsize="marquee"
+        android:layout_toRightOf="@id/linhasconsultas_icon"
+        android:textSize="12sp" />
+
+   <ImageView
+       android:id="@+id/linhasconsultas_icon_status"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignParentRight="true"
+       android:layout_centerInParent="true"
+       android:contentDescription="@string/status" />
+
+   <TextView
+       android:id="@+id/linhasconsultas_data"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignLeft="@+id/linhasconsultas_medico"
+       android:layout_below="@+id/linhasconsultas_medico"
+       android:ellipsize="marquee"
+       android:gravity="center"
+       android:textSize="12sp" />
+
+</RelativeLayout>

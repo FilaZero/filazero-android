@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:background="@drawable/fundo">
+    
+    <TextView
+        android:id="@+id/solicitarconsulta_tvNomeEstb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="15dp"
+        android:layout_y="40dp"
+        android:text="Nome Estabelecimento"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+    <TextView
+        android:id="@+id/solicitarconsulta_tvCidade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="15dp"
+        android:layout_y="70dp"
+        android:text="Cidade"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    
+   	<TextView
+        android:id="@+id/solicitarconsulta_tvNomeMedico"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="15dp"
+        android:layout_y="120dp"
+        android:text="Nome Medico"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+   	<TextView
+        android:id="@+id/solicitarconsulta_tvEspecialidade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="15dp"
+        android:layout_y="150dp"
+        android:text="Especialidade"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    
+    <Button
+        android:id="@+id/solicitarconsulta_btVerEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_x="15dp"
+        android:layout_y="200dp"
+        android:text="Ver Endereco" />
+
+    <Button
+        android:id="@+id/solicitarconsulta_btSolicitar"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_x="60dp"
+        android:layout_y="350dp"
+        android:text="Solicitar Consultar" />
+
+</AbsoluteLayout>

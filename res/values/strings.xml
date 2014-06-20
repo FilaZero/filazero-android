@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">FilaZero</string>
+    <string name="sexo_prompt">Escolha o sexo</string>
+    <string name="entrar">Entrar</string>
+    <string name="registrar">Faça seu cadastro!</string>
+    <string name="login"> Login</string>
+    <string name="senha"> Senha</string>
+    <string name="logo"> Logo</string>
+    <string name="consulta"> Consulta</string>
+    <string name="estabelecimento"> Estabelecimento</string>
+    <string name="buscar"> Buscar</string>
+    <string name="configuracao"> Configuração</string>
+    <string name="medico"> Médico:</string>
+    <string name="turno"> Turno:</string>
+    <string name="status"> Status:</string>
+    <string name="data"> Data:</string>
+    <string name="confimar"> Confirmar</string>
+    <string name="cancelar"> Cancelar</string>
+    <string name="tipo"> Tipo:</string>
+    <string name="lista_consultas"> Lista de Consultas</string>
+    <string name="atualizar"> Atualizar</string>
+    <string name="tempoestimado"> Tempo estimado para atendimento</string>
+    <string name = "imgfila"> Imagem fila</string>
+    <string name = "infoconsulta"> Informações de consulta </string>
+    <string name = "chamada">Chamada</string>
+    <string name = "rota">Rota</string>
+    <string name = "fila">Fila</string>
+    <string name = "localizarestabelecimento">Localizar estabelecimento</string>
+    <string-array name="sexos_array">
+	<item>Masculino</item>
+	<item>Feminino</item>
+	<item>Outro</item>	
+	</string-array>
+
+</resources>
