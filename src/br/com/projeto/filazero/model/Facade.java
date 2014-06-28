@@ -55,6 +55,14 @@ public class Facade {
 		}
 	}
 	
+	public Cliente autenticacao(String login,String senha) throws Exception{
+		try {
+			return dadosCliente.autenticacao(login,senha);
+		}catch (Exception e) {
+			throw new Exception(e.getMessage());
+		}
+	}
+	
 	public Cliente getUsuarioCPF(String cpf) throws Exception{
 		try {
 			return dadosCliente.get(cpf);

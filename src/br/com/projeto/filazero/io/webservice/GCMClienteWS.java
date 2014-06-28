@@ -13,18 +13,17 @@ public class GCMClienteWS {
 	public String salvarGCMCliente(GCMCliente gcm)throws Exception {
 		Gson gson = new Gson();
 	    String gcmJSON = gson.toJson(gcm);
-	    String[] resposta = new WebService().post(URL_WS + "salvar", gcmJSON);
-	    if (resposta[0].equals("200")) {
+	    String[] resposta = new WebService().post(URL_WS, gcmJSON);
+	    if (resposta[0].equals("200")) 
 	        return resposta[1];
-	    } else {
+	    else
 	        throw new Exception(resposta[1]);
-	    }
 	}
 	
 	public String atulizarGCMCliente(GCMCliente gcm)throws Exception {
 		Gson gson = new Gson();
 	    String gcmJSON = gson.toJson(gcm);
-	    String[] resposta = new WebService().post(URL_WS + "atualizar", gcmJSON);
+	    String[] resposta = new WebService().put(URL_WS, gcmJSON);
 	    if (resposta[0].equals("200")) {
 	        return resposta[1];
 	    } else {
@@ -33,7 +32,7 @@ public class GCMClienteWS {
 	}
 	
 	public GCMCliente getGCMCliente(String cpf)throws Exception{
-		String[] resposta = new WebService().get(URL_WS + cpf);
+		String[] resposta = new WebService().get(URL_WS +"cpf="+ cpf);
 
 	    if (resposta[0].equals("200")) {
 	        Gson gson = new Gson();

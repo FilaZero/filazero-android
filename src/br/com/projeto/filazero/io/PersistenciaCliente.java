@@ -6,5 +6,6 @@ public interface PersistenciaCliente{
 	public String save(Cliente cliente) throws Exception;
 	public Cliente get(String login) throws Exception;
 	public String update(Cliente cliente)throws Exception;
-	public String delete(int id);	
+	public String delete(int id);
+	public Cliente autenticacao(String login, String senha) throws Exception;	
 }

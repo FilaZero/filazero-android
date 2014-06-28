@@ -30,7 +30,8 @@ public class EstabelecimentoWS implements PersistenciaEstabelecimento{
 	@Override
 	public List<Estabelecimento> getEstabelecimentosCidade(String cidade) throws Exception {
 		cidade = cidade.replace(" ","_");
-		String[] resposta = new WebService().get(URL_WS+"buscarPorCidade/"+cidade);
+		String url = URL_WS+"cidade="+cidade;
+		String[] resposta = new WebService().get(url);
 		if (resposta[0].equals("200")) {
 	        Gson gson = new Gson();
 	        LinkedList<Estabelecimento> listaEstabs = new LinkedList<Estabelecimento>();

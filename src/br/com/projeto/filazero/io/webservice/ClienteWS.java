@@ -22,7 +22,7 @@ import com.google.gson.JsonParser;
 		public String save(Cliente cliente) throws Exception {
 		     Gson gson = new Gson();
 		     String clienteJSON = gson.toJson(cliente);
-		     String[] resposta = new WebService().post(URL_WS + "inserir", clienteJSON);
+		     String[] resposta = new WebService().post(URL_WS, clienteJSON);
 		     if (resposta[0].equals("200")) {
 		         return resposta[1];
 		     } else {
@@ -42,33 +42,25 @@ import com.google.gson.JsonParser;
 		    }
 	    }
 	    
-	  	    
-	    public List<Cliente> getListaCliente() throws Exception {
-
-	     String[] resposta = new WebService().get(URL_WS + "buscarTodosGSON");
-	     	     
-	     if (resposta[0].equals("200")) {
-	        Gson gson = new Gson();
-	        ArrayList<Cliente> listaCliente = new ArrayList<Cliente>();
-	        JsonParser parser = new JsonParser();
-	        JsonArray array = parser.parse(resposta[1]).getAsJsonArray();
-	         
-	        for (int i = 0; i < array.size(); i++) {
-	             listaCliente.add(gson.fromJson(array.get(i), Cliente.class));
-	         }
-	         return listaCliente;
-	     } else {
-	         throw new Exception(resposta[1]);
-	     }
+	    public Cliente autenticacao(String login,String senha) throws Exception {
+	    	String url = URL_WS +"login="+login+"/senha="+senha;
+	    	System.out.println(url);
+	    	String[] resposta = new WebService().get(url);
+	    	
+	    	if (resposta[0].equals("200")) {
+	    		Gson gson = new Gson();
+		        Cliente cliente = gson.fromJson(resposta[1], Cliente.class);
+		        return cliente;
+		    } else {
+		        throw new Exception(resposta[1]);
+		    }
 	    }
-	    
-	      
+	    	  	    	      
 	    public String delete(int id) {   
 	     	String[] resposta = new WebService().get(URL_WS + "delete/" + id);
 	     	return resposta[1];
 	    }
-		
-	    
+			    
 		@Override
 		public String update(Cliente cliente) throws Exception {
 			Gson gson = new Gson();

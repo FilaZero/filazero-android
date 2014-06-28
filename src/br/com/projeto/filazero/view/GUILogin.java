@@ -149,20 +149,15 @@ public class GUILogin extends Activity implements OnClickListener{
 		pd = ProgressDialog.show(this, null, "Aguarde", false, false);
 		
 		try {
-			Cliente user = facade.getUsuario(login);
-			if(user==null){
-				et_login.setError("Usuario não cadastrado");
+			Cliente user = facade.autenticacao(login,senha);
+			if(user!=null){
+				VariaveisEstaticas.usuarioLogado = user;
 				pd.dismiss();
-				return false;			
+				return true;						
 			}else{
+				et_login.setError("Usuario nao cadastrado");
 				pd.dismiss();
-				if(senha.equals(user.getSenha())){
-					VariaveisEstaticas.usuarioLogado = user;
-					return true;
-				}else{
-					alert();
-					return false;
-				}
+				return false;	
 			}
 		} catch (Exception e) {
 			Toast.makeText(getBaseContext(),e.getMessage(), Toast.LENGTH_LONG).show();
@@ -175,7 +170,7 @@ public class GUILogin extends Activity implements OnClickListener{
 		alerta = new AlertDialog.Builder(this);
 		alerta.setTitle("Senha incorreta");
 		alerta.setIcon(R.drawable.ic_alerta);
-		alerta.setMessage("A senha está incorreta. Tente novamente");
+		alerta.setMessage("A senha esta incorreta. Tente novamente");
 		alerta.setPositiveButton("Ok", new DialogInterface.OnClickListener(){
 			public void onClick(DialogInterface dialog,int whichButton){
 				et_senha.setText("");

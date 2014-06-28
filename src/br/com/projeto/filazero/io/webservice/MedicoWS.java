@@ -16,7 +16,9 @@ public class MedicoWS implements PersistenciaMedico {
 	
 	@Override
 	public List<Medico> getMedicos(String idEstab)throws Exception  {
-		String[] resposta = new WebService().get(URL_WS+"buscarMedicosEstab/"+idEstab);
+		
+		String url = URL_WS+"idEstab"+idEstab;
+		String[] resposta = new WebService().get(url);
 		if (resposta[0].equals("200")) {
 	        Gson gson = new Gson();
 	        LinkedList<Medico> listaMedicos = new LinkedList<Medico>();
